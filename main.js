@@ -17,11 +17,16 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const mongoUri = process.env.MONGO_URI;
+let mongoUri = process.env.MONGO_URI;
 if (!mongoUri) {
   console.error("MONGO_URI environment variable not set!");
   process.exit(1);
 }
+
+if (mongoUri.startsWith('"') && mongoUri.endsWith('"')) {
+  mongoUri = mongoUri.slice(1, -1);
+}
+
 
 const client =new MongoClient(mongoUri);;
 await client.connect();
