@@ -1,7 +1,7 @@
 {
-  "name": "backend-stage0",
+  "name": "backend-stage1",
   "version": "1.0.0",
-  "description": "This project implements a simple RESTful API endpoint `/me` that returns my profile information along with a random cat fact fetched from the Cat Facts API.",
+  "description": "This project analyzes strings",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -14,15 +14,9 @@
   "dependencies": {
     "axios": "^1.12.2",
     "cors": "^2.8.5",
+    "crypto": "^1.0.1",
     "dotenv": "^17.2.3",
-    "express": "^5.1.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/BintaSani/backend-stage0.git"
-  },
-  "bugs": {
-    "url": "https://github.com/BintaSani/backend-stage0/issues"
-  },
-  "homepage": "https://github.com/BintaSani/backend-stage0#readme"
+    "express": "^5.1.0",
+    "mongodb": "^6.20.0"
+  }
 }
