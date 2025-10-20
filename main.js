@@ -17,7 +17,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const client = new MongoClient(process.env.MONGO_URI);
+const mongoUri = process.env.MONGO_URI;
+if (!mongoUri) {
+  console.error("MONGO_URI environment variable not set!");
+  process.exit(1);
+}
+
+const client =new MongoClient(mongoUri);;
 await client.connect();
 const db = client.db("bint");
 const collection = db.collection("stringAnalyzers");
