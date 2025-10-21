@@ -40,6 +40,10 @@ try {
 const db = client.db("bint");
 const collection = db.collection("stringAnalyzers");
 
+console.log("Loaded env variables:", Object.keys(process.env));
+console.log("MONGO_URI value:", process.env.MONGO_URI);
+
+
 // Basic logging middleware
 app.use((req, res, next) => {
   console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
