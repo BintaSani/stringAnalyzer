@@ -37,8 +37,8 @@ A Node.js & Express API for analyzing, storing, filtering, and retrieving string
 1. Clone the repository:
 
 ```bash
-git clone <repo-url>
-cd <repo-folder>
+git clone <git@github.com:BintaSani/stringAnalyzer.git>
+cd <stringAnalyzer>
 ```
 
 npm install
