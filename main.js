@@ -28,8 +28,15 @@ if (mongoUri.startsWith('"') && mongoUri.endsWith('"')) {
 }
 
 
-const client =new MongoClient(mongoUri);;
-await client.connect();
+let client;
+try {
+  client = new MongoClient(mongoUri);
+  await client.connect();
+  console.log("Connected to MongoDB successfully!");
+} catch (error) {
+  console.error("MongoDB connection failed:", error);
+  process.exit(1);
+}
 const db = client.db("bint");
 const collection = db.collection("stringAnalyzers");
 
@@ -38,6 +45,11 @@ app.use((req, res, next) => {
   console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
   next();
 });
+
+// Serve backend
+// app.get("/", (req, res) => {
+//   res.send(" Backend is running and connected to MongoDB!");
+// });
 
 // Serve frontend
 app.get("/", (req, res) => {
